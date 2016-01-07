@@ -26,15 +26,20 @@ body {
 .logo
 {
 	float: left;
-    margin-top: 7px;
+    margin-top: 0px;
 	padding-left: 15px;
     padding-right: 5px;
 
 }
+#logotext1
+{
+    padding-top: 13px;  
+    font-size: 20px;  
+}
 .logotext{
     font-weight: bold;
     margin-top: 12px;
-    font-size: 20px;
+    
     color: #7f7f8a;
 }
 .jumbotron {
@@ -71,7 +76,7 @@ body {
 .logLink
 {
     background-color: #cbcbcb;
-    padding-top: 18.1px;
+    padding-top: 17.1px;
     padding-bottom: 12px;
 }
 .stack
