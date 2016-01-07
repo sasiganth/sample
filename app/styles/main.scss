@@ -23,3 +23,108 @@ body {
   //font-family: 'Lato', sans-serif;
   font-size:13px;
 }
+.logo
+{
+	float: left;
+    margin-top: 7px;
+	padding-left: 15px;
+    padding-right: 5px;
+
+}
+.logotext{
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 20px;
+    color: #7f7f8a;
+}
+.jumbotron {
+    background-color: #000000;
+    background:  url("/images/rebound-slider-1-bg.jpg") ;
+    width: 100%;
+    height: 700px;
+    background-size: contain;
+    background-size: 100% 70%;
+    background-repeat: no-repeat;
+    position:fixed;
+    overflow: hidden;
+    margin-bottom: 0px;    
+}
+#botmor
+{
+    margin-bottom: 0px;
+}
+
+.logbtn {
+    position: fixed;
+    top:42%;
+    left:41%;
+    color: #ffffff;
+    background-color: #ED2915;
+    font-size: 18px;
+    font-weight: 400;
+    width: 230px;
+    height: 50px;
+    padding-top: 13px;
+    letter-spacing: -1px;
+}
+
+.logLink
+{
+    background-color: #cbcbcb;
+    padding-top: 18.1px;
+    padding-bottom: 12px;
+}
+.stack
+{
+    font-size: 25px;
+}
+.logbtn:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+.colorBlack
+{
+    color: #000000;
+}
+.follow
+{
+    font-weight: lighter;
+    font-family: "Sans-serif";
+    font-size: 18px;
+}
+#footer {
+    text-align: center;
+    position: fixed;
+    height: 125px;
+    bottom: 0;
+    width: 100%;
+}
+
+.username
+{
+    float: left;
+    padding-left: 500px;
+    padding-top: 12px;
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #7f7f8a;
+}
+
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ }
+  .datepickerdemoBasicUsage md-content {
+    padding-bottom: 10px; }
+  .datepickerdemoBasicUsage .validation-messages {
+    font-size: 11px;
+    color: darkred;
+    margin: 10px 0 0 25px; }
+.searchDate
+{
+    padding-top: 18.1px;
+    padding-bottom: 12px;
+}
+.ro
+{
+    background-color: #ff0000;
+}
