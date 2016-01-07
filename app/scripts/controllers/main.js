@@ -7,6 +7,75 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
         endDate: undefined
     };   
     
+
+        $scope.options = {
+            chart: {
+                type: 'discreteBarChart',
+                height: 450,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 50,
+                    left: 55
+                },
+                x: function(d){return d.label;},
+                y: function(d){return d.value + (1e-10);},
+                showValues: true,
+                valueFormat: function(d){
+                    return d3.format(',.4f')(d);
+                },
+                duration: 500,
+                xAxis: {
+                    axisLabel: 'Months'
+                },
+                yAxis: {
+                    axisLabel: 'No of Users',
+                    axisLabelDistance: -10
+                }
+            }
+        };
+
+        $scope.data1 = [
+            {
+                key: "Cumulative Return",
+                values: [
+                    {
+                        "label" : "Jan" ,
+                        "value" : 29.765957771107
+                    } ,
+                    {
+                        "label" : "Feb",
+                        "value" : 100
+                    } ,
+                    {
+                        "label" : "Mar" ,
+                        "value" : 62.807804682612
+                    } ,
+                    {
+                        "label" : "Apr" ,
+                        "value" : 16.45946739256
+                    } ,
+                    {
+                        "label" : "May" ,
+                        "value" : 150.19434030906893
+                    } ,
+                    {
+                        "label" : "Jun" ,
+                        "value" : 98.079782601442
+                    } ,
+                    {
+                        "label" : "Jul" ,
+                        "value" : 83.925743130903
+                    } ,
+                    {
+                        "label" : "Aug" ,
+                        "value" : 55.1387322875705
+                    }
+                ]
+            }
+        ]
+
+
      $scope.kubeTable = new ngTableParams(
      {
          page: 1,            // show page number
