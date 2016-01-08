@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestService','ngTableParams','$filter', function ($scope, RequestService, ngTableParams,$filter){
-
+   
     $scope.filter = {
         startDate:undefined,
         endDate: undefined
@@ -22,7 +22,7 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
                 y: function(d){return d.value + (1e-10);},
                 showValues: true,
                 valueFormat: function(d){
-                    return d3.format(',.4f')(d);
+                    return d3.format(',.2f')(d);
                 },
                 duration: 500,
                 xAxis: {
@@ -34,9 +34,10 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
                 }
             }
         };
-
+var c=[55,100,300];
         $scope.data1 = [
             {
+
                 key: "Cumulative Return",
                 values: [
                     {
@@ -45,7 +46,7 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
                     } ,
                     {
                         "label" : "Feb",
-                        "value" : 100
+                        "value" : c[0]
                     } ,
                     {
                         "label" : "Mar" ,
@@ -65,12 +66,28 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
                     } ,
                     {
                         "label" : "Jul" ,
-                        "value" : 83.925743130903
+                        "value" : c[1]
                     } ,
                     {
                         "label" : "Aug" ,
-                        "value" : 55.1387322875705
-                    }
+                        "value" : c[2]
+                    },
+                    {
+                        "label" : "Sep" ,
+                        "value" : 16.45946739256
+                    } ,
+                    {
+                        "label" : "Oct" ,
+                        "value" : 150.19434030906893
+                    } ,
+                    {
+                        "label" : "Nov" ,
+                        "value" : 16.45946739256
+                    } ,
+                    {
+                        "label" : "Dec" ,
+                        "value" : 150.19434030906893
+                    } 
                 ]
             }
         ]
@@ -93,10 +110,13 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
          {    
           debugger;    
              RequestService.getData({p:params.parameters().page, s:params.parameters().count}).then(function(data){
-                 $scope.kubes = data;           
+                 $scope.kubes = data;   
+
                  $scope.orderedData = params.sorting() ? $filter('orderBy')($scope.kubes, params.orderBy()) : data;              
                  $scope.orderedData = $filter('filter')($scope.orderedData, params.filter());              
                  params.total(10);
+                 $scope.len=data.length;
+
           
                   // params.settings({ counts: data.result.length > 5 ? [10,25,50,100] : []});
                  $defer.resolve($scope.orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
