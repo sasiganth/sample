@@ -1,5 +1,4 @@
-<nav class="navbar navbar-default" id="botmor">
-	<div class="container-fluid">
+<nav class="navbar navbar-default" id="botmor">	
 		<div class="wrap">
 			<div class="navbar-header navheader navbar-fixed-top">
 				 <div class="col-sm-7 innerhead">
@@ -9,80 +8,79 @@
 			     <div class="col-sm-5 username">Welcome, Sasiganth&nbsp;<i class="fa fa-caret-down"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-question-circle"></i></div>
 			</div>
 		</div>
-	</div>
 </nav>
-<nav class="navbar navbar-inverse" id="botmor">
-	  <div class="container-fluid">
-		    <div class="navbar-header">
-		     	 <a class="navbar-brand" href="#/views/list"><i class="fa fa-home fa-2x text-center"></i></a>
-		    </div>
-		    <ul class="nav navbar-nav">
-		    	 <li class="active"><a href="#">Manage Account</a></li>
-		     	 <li><a href="#/views/list">Cloud Resources</a></li>
-		     	 <li><a href="#/views/list">Container Resources</a></li>
-		     	 <li><a href="#/views/list">Alert</a></li>
-		    </ul>
-	  </div>
+<nav class="navbar navbar-inverse" id="botmor">	  
+    <div class="navbar-header">
+     	 <a class="navbar-brand" href="#/views/list"><i class="fa fa-home fa-2x text-center"></i></a>
+    </div>
+    <ul class="nav navbar-nav">
+    	 <li class="active"><a href="#">User List</a></li>
+     	 <li><a href="#/views/list">Cloud Resources</a></li>
+     	 <li><a href="#/views/list">Container Resources</a></li>
+     	 <li><a href="#/views/list">Alert</a></li>
+    </ul>	  
 </nav>
-<div class="container-fluid colorBlack bgwhite" id="botmor">
-	<div>
-		<h2>Search By Date</h2>
+<div class="container-fluid">
+	<div class="row" id="botmor">
+		<div class="col-sm-12">
+			<h2>Search By Date</h2>
+		</div>
+	</div>			
+	<form class="form-inline">
+		<div class="form-group row">
+			<div class="col-md-12">	
+				<md-content>			        	
+			        <div class="col-sm-6 colorBlack">
+			        	<label >From</label>
+			       	    <md-datepicker id="keysFilter" ng-model="filter.startDate" value="1/1/1990" md-placeholder="Enter date"></md-datepicker>
+			       	</div>
+			        <div class="col-sm-5 colorBlack" colorBlack>
+			        	<label >To</label>
+			       		<md-datepicker id="keysFilter" ng-model="filter.endDate" value="1/1/2030" md-placeholder="Enter date"></md-datepicker>									
+			       	</div>	
+			   	<md-content>            
+			</div>
+		</div>
+	</form>
+	<div class="row">	
+		<div class="col-sm-2 colorBlack"><h2>List Of Users</h2></div>
+		<div class="col-sm-5">
+			<div class="col-sm-4 paddlist"><h4>Total Count</h4></div>
+			<div class="col-sm-2 paddlist"><h4>{{len}}<h4></div>
+			<div class="col-sm-4 paddlist"><h4>Filtered Count<h4></div>
+			<div class="col-sm-2 paddlist"><h4>0<h4></div>
+		</div>
+		<div class="col-sm-5"></div>			
 	</div>
-</div>			
-<div class=" datepickerdemoBasicUsage tabletext">
-		<form class="form-inline">
-	        <div class="form-group">
-	        	<div class="row">
-	        		<div class="col-md-12">	
-	        			<md-content>			        	
-				            <div class="col-sm-6 colorBlack">
-				            	<label >From</label>
-				           	    <md-datepicker id="keysFilter" ng-model="filter.startDate" value="1/1/1990" md-placeholder="Enter date"></md-datepicker>
-				           	</div>
-				            <div class="col-sm-5 colorBlack" colorBlack>
-				            	<label >To</label>
-				           		<md-datepicker id="keysFilter" ng-model="filter.endDate" value="1/1/2030" md-placeholder="Enter date"></md-datepicker>									
-				           	</div>	
-			           	<md-content>            
-		            </div>
-	            </div>
-	        </div>
-	    </form>
+	<div class="tabletext row">
+		<div class="table-responsive col-sm-7">
+			<table ng-table="kubeTable" class="table table-bordered table-hover">
+				<thead>
+					<tr class="success colorBlack">
+						<th class="col-sm-3">Name</th>
+						<th class="col-sm-6">Mail-Id</th>
+						<th class="col-sm-3">Date</th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr ng-repeat="users in kubes" class="text-center">
+				        <td data-title="'Name'" sortable="'Name'">{{users.Name}}</td>
+				        <td>{{users.Mail}}</td>
+				        <td>{{users.JDate}}</td>
+				    </tr>
+			    </tbody>
+			</table>
+		</div>
+		<div class="col-sm-5">
+			<div>
+				<div><h2>User Count</h2></div>
+				<div>
+					<nvd3 options="options" data="data1"></nvd3>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>
-<div class=" bgwhite">
-	<div class="row">
-	<div class="col-sm-2  colorBlack"><h2>List Of Users</h2></div>
-	<div class="col-sm-5">
-		<div class="col-sm-4 paddlist"><h4>Total Count</h4></div>
-		<div class="col-sm-2 paddlist"><h4>{{len}}<h4></div>
-		<div class="col-sm-4 paddlist"><h4>Filtered Count<h4></div>
-		<div class="col-sm-2 paddlist"><h4>0<h4></div>
-	</div>
-	<div class="col-sm-5"></div>
-	</div>
-</div>
-<div class=" tabletext">
-	<div class="table-responsive col-sm-7">
-		<table ng-table="kubeTable" class="table table-bordered table-hover">
-			<thead>
-				<tr class="success colorBlack">
-					<th class="col-sm-3">Name</th>
-					<th class="col-sm-6">Mail-Id</th>
-					<th class="col-sm-3">Date</th>
-				</tr>
-			</thead>
-			<tbody>
-			    <tr ng-repeat="users in kubes" class="text-center">
-			        <td data-title="'Name'" sortable="'Name'">{{users.Name}}</td>
-			        <td>{{users.Mail}}</td>
-			        <td>{{users.JDate}}</td>
-			    </tr>
-		    </tbody>
-		</table>
-	</div>
-	<div class="col-sm-5">
-		<nvd3 options="options" data="data1"></nvd3>
-	</div>
 	<!--<div class="alert alert-info">
 		<p>Sort key: {{sortKey}}</p>
 		<p>Reverse: {{reverse}}</p>
@@ -115,12 +113,7 @@
 			    </tr>
 		    </tbody>
 		</table>-->
-
-
-</div>	
-
-
-<div class="navheader foothome" >
+<div class="navheader" >
     <div class="infooter">
 		<div class="footertext">Follow Us</div>
 		<div class="footericon"><i class="fa fa-facebook fa-1x"></i>&nbsp;&nbsp;<i class="fa fa-twitter fa-1x"></i>&nbsp;&nbsp;<i class="fa fa-linkedin-square fa-1x"></i></div>

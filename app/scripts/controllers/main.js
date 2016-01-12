@@ -30,7 +30,7 @@ angular.module('gopaddleAdminApp').controller('requestCtrl',['$scope','RequestSe
                 },
                 yAxis: {
                     axisLabel: 'No of Users',
-                    axisLabelDistance: -10
+                    axisLabelDistance: -7
                 }
             }
         };
